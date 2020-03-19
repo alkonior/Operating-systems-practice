@@ -1,0 +1,1 @@
+badmain.c:6:16: warning: implicitly declaring library function 'fmaxf' with type 'float (float, float)' [-Wimplicit-function-declaration]    float x  = fmaxf(50,5);               ^badmain.c:6:16: note: include the header <math.h> or explicitly provide a declaration for 'fmaxf'1 warning generated.
