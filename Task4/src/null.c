@@ -1,7 +1,7 @@
 #include <stdio.h>
 int main(){
     int *a = NULL;
-    printf("%li\n",a);
+    printf("%li\n",(long)a);
     printf("%d",*a);
 
     return 0;
