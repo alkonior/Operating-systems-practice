@@ -32,13 +32,20 @@
  */
 
 #include <stdbool.h>
+#include <stddef.h>
+#include <stdint.h>
 #include <stdlib.h>
-#include "checksum.h"
+#include <stdio.h>
 
 static void             init_crc16_tab( void );
 
 static bool             crc_tab16_init          = false;
 static uint16_t         crc_tab16[256];
+
+#define		CRC_START_16		0x0000
+#define		CRC_START_MODBUS	0xFFFF
+#define		CRC_POLY_16		0xA001
+
 
 /*
  * uint16_t crc_16( const unsigned char *input_str, size_t num_bytes );
@@ -48,6 +55,9 @@ static uint16_t         crc_tab16[256];
  * bytes to check is also a parameter. The number of the bytes in the string is
  * limited by the constant SIZE_MAX.
  */
+
+
+
 
 uint16_t crc_16( const unsigned char *input_str, size_t num_bytes ) {
 
@@ -68,6 +78,28 @@ uint16_t crc_16( const unsigned char *input_str, size_t num_bytes ) {
     return crc;
 
 }  /* crc_16 */
+
+uint16_t CRC16Summ(const char *file_name) {
+    int k,i;
+    FILE *ptrfile;
+    k=0;
+    int s;
+    ptrfile=fopen(file_name,"r+");
+
+    while ((char)((unsigned char)fgetc(ptrfile)) !=
+           EOF) { // считали символ, и проверили
+        // что он не конечный
+        k++;
+    }
+    char *ex_res = malloc(k);
+
+    rewind(ptrfile);
+    fread(ex_res,1,k,ptrfile);
+    fclose(ptrfile);
+
+    return crc_16(ex_res,k);
+
+}
 
 /*
  * uint16_t crc_modbus( const unsigned char *input_str, size_t num_bytes );
