@@ -60,3 +60,17 @@ Task9/main-race
 Task9/main-signal
 
 Task9/main-signal-cv
+
+Task11/HW-Threads-RealDeadlock.tgz
+
+Task11/vector-avoid-hold-and-wait
+
+Task11/vector-deadlock
+
+Task11/vector-global-order
+
+Task11/vector-nolock
+
+Task11/vector-try-wait
+
+Task12/cache
