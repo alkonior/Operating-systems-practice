@@ -50,3 +50,13 @@ Task1/Makefile
 Task1/output/task1
 
 *.cbp
+
+Task9/main-deadlock
+
+Task9/main-deadlock-global
+
+Task9/main-race
+
+Task9/main-signal
+
+Task9/main-signal-cv
