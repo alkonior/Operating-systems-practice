@@ -39,7 +39,7 @@ int main() {
     clk_tck = sysconf(_SC_CLK_TCK);
  
     for (csize=CACHE_MIN; csize <= CACHE_MAX; csize=csize*2) 
-	for (stride=1; stride <= 512/4; stride=stride*2) {
+	for (stride=1; stride <= csize/2; stride=stride*2) {
 	    sec = 0; /* initialize timer */
 	    limit = csize-stride+1; /* cache size this loop */
      

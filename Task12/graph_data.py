@@ -10,7 +10,7 @@ for line in open('data'):
 
 thinkplot.PrePlot(num=7)
 for stride in sorted(d.keys()):
-    if stride >= 512: continue
+    if stride >= 65536: continue
 
     xs, ys = zip(*d[stride])
     thinkplot.plot(xs, ys, label=str(stride))

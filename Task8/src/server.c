@@ -87,7 +87,7 @@ int wait_request(int sockfd) {
             send[strlen(time_str)] = '\0';
         }
 
-        if (strncmp(m_read, buff, 4) == 0 && strlen(buff) > 5) { //file
+        if (strncmp(m_read, buff, 4) == 0 && strlen(buff) > 5) { //file + //
             char *str = (char *) malloc(1 + strlen(buff) - 2);
             strncpy(str, buff + 5, strlen(buff) - 5);
             send = open_file(str);
